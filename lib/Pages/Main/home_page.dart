@@ -1,7 +1,8 @@
 import 'package:dttproperties/Pages/secondary/search_filter_page.dart';
 import 'package:dttproperties/app_management/Providers/connectivity_status_provider.dart';
 import 'package:dttproperties/shared_widgets/property_result_widget.dart';
-import 'package:dttproperties/shared_widgets/searchbar_widget.dart';
+import 'package:dttproperties/shared_widgets/searchbar_widget.dart'
+    as my_search_bar;
 import 'package:dttproperties/app_management/constants.dart';
 import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
 import 'package:dttproperties/Pages/secondary/favourite_page.dart';
@@ -88,7 +89,7 @@ class _HomePageState extends ConsumerState<HomePage>
                               ],
                             ),
                           ),
-                          SearchBar(),
+                          my_search_bar.SearchBar(),
                           Container(
                             padding: standardPagePadding,
                             child: Row(

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:dttproperties/Models/property.dart';
 import 'package:dttproperties/Models/search_filter.dart';
 import 'package:dttproperties/app_management/Providers/search_filter_provider.dart';
-import 'package:dttproperties/app_management/api_keys.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dttproperties/app_management/env.dart';
 import 'package:http/http.dart' as http;
 
 final collectedProperties = FutureProvider<List<Property>>((ref) async {
@@ -12,7 +12,7 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
   final query = ref.watch(searchQueryProvider);
   final searchFilter = ref.watch(searchFilterProvider);
   Uri url = Uri.parse('https://intern.d-tt.nl/api/house');
-  final response = await http.get(url, headers: {'Access-Key': houseAPIKey});
+  final response = await http.get(url, headers: {'Access-Key': Env.house_key});
   if (response.statusCode == 200) {
     final List<dynamic> properties = jsonDecode(response.body);
     for (var property in properties) {

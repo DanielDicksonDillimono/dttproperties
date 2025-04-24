@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PropertyResults extends ConsumerWidget {
-  const PropertyResults({Key? key}) : super(key: key);
+  const PropertyResults({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
