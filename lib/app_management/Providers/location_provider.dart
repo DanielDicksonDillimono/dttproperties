@@ -15,8 +15,7 @@ final currentPositionFutureProvider = FutureProvider<Position>(
     if (!permissionGiven) {
       return Future.error('Permission not given');
     }
-    return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+    return await Geolocator.getCurrentPosition();
   },
 );
 

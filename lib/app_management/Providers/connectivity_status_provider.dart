@@ -10,11 +10,11 @@ final internetConnectivityStatusProvider = FutureProvider<bool>(
     bool connectedToInternet = false;
     final connectivityStatus =
         ref.watch(connectivityStatusStreamProvider).value;
-    if (connectivityStatus!.contains(ConnectivityResult.none)) {
+    if (connectivityStatus == null) return false;
+    if (connectivityStatus[0] != ConnectivityResult.none) {
       connectedToInternet =
           await InternetConnectionChecker.createInstance().hasConnection;
     }
-    //return connectedToInternet;
-    return true;
+    return connectedToInternet;
   },
 );

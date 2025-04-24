@@ -12,7 +12,7 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
   final query = ref.watch(searchQueryProvider);
   final searchFilter = ref.watch(searchFilterProvider);
   Uri url = Uri.parse('https://intern.d-tt.nl/api/house');
-  final response = await http.get(url, headers: {'Access-Key': Env.house_key});
+  final response = await http.get(url, headers: {'Access-Key': Env.houseKey});
   if (response.statusCode == 200) {
     final List<dynamic> properties = jsonDecode(response.body);
     for (var property in properties) {
